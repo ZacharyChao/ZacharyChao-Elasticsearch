@@ -25,24 +25,27 @@ public class ESSearchClient implements ISearchClient {
 
 	public List<String> searchString(String index,String type, String name, String value) {
 		MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery(name, value);
-		SearchRequestBuilder builder = client.prepareSearch(index).setTypes(type).setQuery(matchQueryBuilder).setSize(10);
+		SearchRequestBuilder builder = client.prepareSearch(index).setTypes(type).setQuery(matchQueryBuilder);
 		SearchHits hits = builder.get().getHits();
 		List<String> list = new ArrayList<String>();
 		hits.forEach(item -> list.add(item.getSourceAsString()));
+		System.out.println(list);
 		return list;
 	}
 	public List<JSONObject> search(String index,String type, String name, String value){
 		MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery(name, value);
-		SearchRequestBuilder builder = client.prepareSearch(index).setTypes(type).setQuery(matchQueryBuilder).setSize(10);
+		SearchRequestBuilder builder = client.prepareSearch(index).setTypes(type).setQuery(matchQueryBuilder);
 		SearchHits hits = builder.get().getHits();
 		List<JSONObject> list = new ArrayList<JSONObject>();
 		hits.forEach(item -> list.add(JSON.parseObject(item.getSourceAsString())));
+		System.out.println(list);
 		return list;
 	}
 	public <T> List<T> search(String index,String type, String name, String value,Class<T> t){
 		List<JSONObject> response = this.search(index, type, name, value);
 		List<T> list = new ArrayList<T>();
 		response.forEach(item -> list.add(JSON.parseObject(item.toJSONString(), t)));
+		System.out.println(list);
 		return list;
 	}
 
