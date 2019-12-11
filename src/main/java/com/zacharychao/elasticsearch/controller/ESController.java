@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.zacharychao.elasticsearch.entity.SpecInfo;
 import com.zacharychao.elasticsearch.service.ISearchClient;
 
-@Controller
+//@Controller
 
 public class ESController {
 	public final static String INDEX = "specinfo"; 
 	public final static String TYPE = "doc";
-	@Autowired
+//	@Autowired
 	private ISearchClient iSearchClient;
 	@RequestMapping("/test")
 	@ResponseBody

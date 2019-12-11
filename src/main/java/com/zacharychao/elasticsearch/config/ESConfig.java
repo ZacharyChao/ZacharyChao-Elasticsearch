@@ -6,15 +6,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-@Configuration
+//@Configuration
 public class ESConfig {
-	@Bean
+//	@Bean
 	public RestHighLevelClient getClient() {
 		return getESDecorator().getRestHighLevelClient();
 	}
 	
-	@Bean
-	@Scope("singleton")
+//	@Bean
+//	@Scope("singleton")
 	public ESDecorator getESDecorator() {
 		return new ESDecorator(new HttpHost("39.100.232.215",9200,"http"));
 	}
