@@ -29,7 +29,6 @@ public class ESDecorator implements InitializingBean,DisposableBean{
 			try {
 				transportClient.addTransportAddress(new TransportAddress(InetAddress.getByName("39.100.232.215"),9300));
 			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
