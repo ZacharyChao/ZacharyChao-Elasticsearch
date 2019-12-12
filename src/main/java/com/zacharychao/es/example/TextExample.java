@@ -134,11 +134,11 @@ public class TextExample {
 		try {
 //			insert();
 //			System.out.println(searchIdList());
-//			List<String> list = new ArrayList<String>();
-//			list = searchIdList();
+			List<String> list = new ArrayList<String>();
+			list = searchIdList();
 //			System.out.println(delete(list));
-			update();
-			System.out.println(search());
+//			update();
+//			System.out.println(search());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
