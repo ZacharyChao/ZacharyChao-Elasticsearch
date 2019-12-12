@@ -13,6 +13,12 @@
 		<elasticsearch.version>6.3.2</elasticsearch.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
 		<!-- 引入Elasticsearch相关jar包 -->
 		<dependency>
 			<groupId>org.elasticsearch</groupId>

@@ -12,9 +12,13 @@ import org.springframework.beans.factory.InitializingBean;
 
 public class ESDecorator implements InitializingBean,DisposableBean{
 	
-	private TransportClient transportClient;
+	private static TransportClient transportClient;
 	
 	private static Settings settings;
+	
+	private static final String HOST = "47.98.163.175";
+	
+//	private static final String HOST = "39.100.232.215";
 	
 	private static void initSetting() {
 		settings=Settings.builder().put("cluster.name","docker-cluster").build();
@@ -27,7 +31,7 @@ public class ESDecorator implements InitializingBean,DisposableBean{
 			}
 			transportClient=new PreBuiltTransportClient(settings);
 			try {
-				transportClient.addTransportAddress(new TransportAddress(InetAddress.getByName("39.100.232.215"),9300));
+				transportClient.addTransportAddress(new TransportAddress(InetAddress.getByName(HOST),9300));
 			} catch (UnknownHostException e) {
 				e.printStackTrace();
 			}
