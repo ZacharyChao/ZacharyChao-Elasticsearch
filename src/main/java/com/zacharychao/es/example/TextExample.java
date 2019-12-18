@@ -32,8 +32,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zacharychao.es.entity.SpecInfo;
 
 public class TextExample {
-	private static final String HOST = "39.100.232.215";
-//	private static final String HOST = "47.98.163.175";
+//	private static final String HOST = "39.100.232.215";
+	private static final String HOST = "192.168.183.131";
 //	public static void main(String[] args) throws UnknownHostException {
 //		Settings settings = Settings.builder().put("cluster.name","docker-cluster").build();
 //		TransportClient client = new PreBuiltTransportClient(settings);
@@ -124,7 +124,7 @@ public class TextExample {
 		SpecInfo info = new SpecInfo();
 		info.setRevision("revision");
 		UpdateRequest request = new UpdateRequest();
-		request.index("specinfo").type("doc").id("_waP-G4BWkwXlQxSKC1r").doc(JSON.toJSONString(info),XContentType.JSON);
+		request.index("specinfo").type("doc").id("Fh4-_W4BPATBNYEr7MWJ").doc(JSON.toJSONString(info),XContentType.JSON);
 		UpdateResponse response = client.update(request).get();
 		System.out.println(response.getId());
 		close();
@@ -134,11 +134,11 @@ public class TextExample {
 		try {
 //			insert();
 //			System.out.println(searchIdList());
-			List<String> list = new ArrayList<String>();
-			list = searchIdList();
+//			List<String> list = new ArrayList<String>();
+//			list = searchIdList();
 //			System.out.println(delete(list));
 //			update();
-//			System.out.println(search());
+			System.out.println(search());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
